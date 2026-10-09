@@ -17,7 +17,7 @@ node {
         echo 'Deploying in ec2'
         sh """
             sudo mkdir -p ${appDir}
-            sudo crown -R jenkins:jenkins ${appDir}
+            sudo chown -R jenkins:jenkins ${appDir}
             rsync -av --exclude='.git' --exclude='node_modules' ./ ${appDir}
             
             cd ${appDir}
